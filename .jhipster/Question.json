@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "libelle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "toMuscler",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "toSecher",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isCollectif",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "toCibleHaut",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "toCibleBas",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isContact",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isBalle",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isIntense",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isCombat",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isPercussion",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isCher",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isArtistique",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170720125813",
+    "entityTableName": "question",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

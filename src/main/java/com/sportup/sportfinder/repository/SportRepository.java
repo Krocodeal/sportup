@@ -1,0 +1,16 @@
+package com.sportup.sportfinder.repository;
+
+import com.sportup.sportfinder.domain.Sport;
+import org.springframework.stereotype.Repository;
+
+import org.springframework.data.jpa.repository.*;
+
+
+/**
+ * Spring Data JPA repository for the Sport entity.
+ */
+@SuppressWarnings("unused")
+@Repository
+public interface SportRepository extends JpaRepository<Sport,Long> {
+    
+}
