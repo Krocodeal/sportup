@@ -22,7 +22,7 @@
             <label for="field_question">Question</label>
             <select class="form-control" id="field_question" name="question" [(ngModel)]="reponse.question" >
                 <option [ngValue]="null"></option>
-                <option [ngValue]="questionOption.id === reponse.question?.id ? reponse.question : questionOption" *ngFor="let questionOption of questions; trackBy: trackQuestionById">{{questionOption.id}}</option>
+                <option [ngValue]="questionOption.id === reponse.question?.id ? reponse.question : questionOption" *ngFor="let questionOption of questions; trackBy: trackQuestionById">{{questionOption.libelle}}</option>
             </select>
         </div>
     </div>

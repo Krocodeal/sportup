@@ -28,7 +28,7 @@
                 <td>{{reponse.libelle}}</td>
                 <td>
                     <div *ngIf="reponse.question">
-                        <a [routerLink]="['../question', reponse.question?.id ]" >{{reponse.question?.id}}</a>
+                        <a [routerLink]="['../question', reponse.question?.id ]" >{{reponse.question?.libelle}}</a>
                     </div>
                 </td>
                 <td class="text-right">
