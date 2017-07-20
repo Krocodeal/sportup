@@ -1,0 +1,73 @@
+
+<div *ngIf="question">
+    <h2><span>Question</span> {{question.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Libelle</span></dt>
+        <dd>
+            <span>{{question.libelle}}</span>
+        </dd>
+        <dt><span>To Muscler</span></dt>
+        <dd>
+            <span>{{question.toMuscler}}</span>
+        </dd>
+        <dt><span>To Secher</span></dt>
+        <dd>
+            <span>{{question.toSecher}}</span>
+        </dd>
+        <dt><span>Is Collectif</span></dt>
+        <dd>
+            <span>{{question.isCollectif}}</span>
+        </dd>
+        <dt><span>To Cible Haut</span></dt>
+        <dd>
+            <span>{{question.toCibleHaut}}</span>
+        </dd>
+        <dt><span>To Cible Bas</span></dt>
+        <dd>
+            <span>{{question.toCibleBas}}</span>
+        </dd>
+        <dt><span>Is Contact</span></dt>
+        <dd>
+            <span>{{question.isContact}}</span>
+        </dd>
+        <dt><span>Is Balle</span></dt>
+        <dd>
+            <span>{{question.isBalle}}</span>
+        </dd>
+        <dt><span>Is Intense</span></dt>
+        <dd>
+            <span>{{question.isIntense}}</span>
+        </dd>
+        <dt><span>Is Combat</span></dt>
+        <dd>
+            <span>{{question.isCombat}}</span>
+        </dd>
+        <dt><span>Is Percussion</span></dt>
+        <dd>
+            <span>{{question.isPercussion}}</span>
+        </dd>
+        <dt><span>Is Cher</span></dt>
+        <dd>
+            <span>{{question.isCher}}</span>
+        </dd>
+        <dt><span>Is Artistique</span></dt>
+        <dd>
+            <span>{{question.isArtistique}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'question/'+ question.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

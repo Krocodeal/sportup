@@ -1,0 +1,90 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myQuestionLabel">Create or edit a Question</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!question.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="question.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_libelle">Libelle</label>
+            <input type="text" class="form-control" name="libelle" id="field_libelle"
+                [(ngModel)]="question.libelle"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toMuscler">To Muscler</label>
+            <input type="checkbox" class="form-control" name="toMuscler" id="field_toMuscler"
+                [(ngModel)]="question.toMuscler"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toSecher">To Secher</label>
+            <input type="checkbox" class="form-control" name="toSecher" id="field_toSecher"
+                [(ngModel)]="question.toSecher"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isCollectif">Is Collectif</label>
+            <input type="checkbox" class="form-control" name="isCollectif" id="field_isCollectif"
+                [(ngModel)]="question.isCollectif"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toCibleHaut">To Cible Haut</label>
+            <input type="checkbox" class="form-control" name="toCibleHaut" id="field_toCibleHaut"
+                [(ngModel)]="question.toCibleHaut"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toCibleBas">To Cible Bas</label>
+            <input type="checkbox" class="form-control" name="toCibleBas" id="field_toCibleBas"
+                [(ngModel)]="question.toCibleBas"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isContact">Is Contact</label>
+            <input type="checkbox" class="form-control" name="isContact" id="field_isContact"
+                [(ngModel)]="question.isContact"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isBalle">Is Balle</label>
+            <input type="checkbox" class="form-control" name="isBalle" id="field_isBalle"
+                [(ngModel)]="question.isBalle"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isIntense">Is Intense</label>
+            <input type="checkbox" class="form-control" name="isIntense" id="field_isIntense"
+                [(ngModel)]="question.isIntense"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isCombat">Is Combat</label>
+            <input type="checkbox" class="form-control" name="isCombat" id="field_isCombat"
+                [(ngModel)]="question.isCombat"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isPercussion">Is Percussion</label>
+            <input type="checkbox" class="form-control" name="isPercussion" id="field_isPercussion"
+                [(ngModel)]="question.isPercussion"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isCher">Is Cher</label>
+            <input type="checkbox" class="form-control" name="isCher" id="field_isCher"
+                [(ngModel)]="question.isCher"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isArtistique">Is Artistique</label>
+            <input type="checkbox" class="form-control" name="isArtistique" id="field_isArtistique"
+                [(ngModel)]="question.isArtistique"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

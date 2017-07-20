@@ -1,0 +1,107 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySportLabel">Create or edit a Sport</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!sport.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="sport.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                [(ngModel)]="sport.nom"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_image">Image</label>
+            <div>
+                <img [src]="'data:' + sport.imageContentType + ';base64,' + sport.image" style="max-height: 100px;" *ngIf="sport.image" alt="sport image"/>
+                <div *ngIf="sport.image" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{sport.imageContentType}}, {{byteSize(sport.image)}}</span>
+                    <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')" class="btn btn-default btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="fileImage" (change)="setFileData($event, sport, 'image', true)" accept="image/*"/>
+            </div>
+            <input type="hidden" class="form-control" name="image" id="field_image"
+                [(ngModel)]="sport.image"  />
+            <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                [(ngModel)]="sport.imageContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toMuscler">To Muscler</label>
+            <input type="checkbox" class="form-control" name="toMuscler" id="field_toMuscler"
+                [(ngModel)]="sport.toMuscler"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toSecher">To Secher</label>
+            <input type="checkbox" class="form-control" name="toSecher" id="field_toSecher"
+                [(ngModel)]="sport.toSecher"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isCollectif">Is Collectif</label>
+            <input type="checkbox" class="form-control" name="isCollectif" id="field_isCollectif"
+                [(ngModel)]="sport.isCollectif"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toCibleHaut">To Cible Haut</label>
+            <input type="checkbox" class="form-control" name="toCibleHaut" id="field_toCibleHaut"
+                [(ngModel)]="sport.toCibleHaut"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_toCibleBas">To Cible Bas</label>
+            <input type="checkbox" class="form-control" name="toCibleBas" id="field_toCibleBas"
+                [(ngModel)]="sport.toCibleBas"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isContact">Is Contact</label>
+            <input type="checkbox" class="form-control" name="isContact" id="field_isContact"
+                [(ngModel)]="sport.isContact"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isBalle">Is Balle</label>
+            <input type="checkbox" class="form-control" name="isBalle" id="field_isBalle"
+                [(ngModel)]="sport.isBalle"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isIntense">Is Intense</label>
+            <input type="checkbox" class="form-control" name="isIntense" id="field_isIntense"
+                [(ngModel)]="sport.isIntense"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isCombat">Is Combat</label>
+            <input type="checkbox" class="form-control" name="isCombat" id="field_isCombat"
+                [(ngModel)]="sport.isCombat"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isPercussion">Is Percussion</label>
+            <input type="checkbox" class="form-control" name="isPercussion" id="field_isPercussion"
+                [(ngModel)]="sport.isPercussion"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isCher">Is Cher</label>
+            <input type="checkbox" class="form-control" name="isCher" id="field_isCher"
+                [(ngModel)]="sport.isCher"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isArtistique">Is Artistique</label>
+            <input type="checkbox" class="form-control" name="isArtistique" id="field_isArtistique"
+                [(ngModel)]="sport.isArtistique"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

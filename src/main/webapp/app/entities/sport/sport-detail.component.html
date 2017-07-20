@@ -1,0 +1,82 @@
+
+<div *ngIf="sport">
+    <h2><span>Sport</span> {{sport.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Nom</span></dt>
+        <dd>
+            <span>{{sport.nom}}</span>
+        </dd>
+        <dt><span>Image</span></dt>
+        <dd>
+            <div *ngIf="sport.image">
+                <a (click)="openFile(sport.imageContentType, sport.image)">
+                    <img [src]="'data:' + sport.imageContentType + ';base64,' + sport.image" style="max-width: 100%;" alt="sport image"/>
+                </a>
+                {{sport.imageContentType}}, {{byteSize(sport.image)}}
+            </div>
+        </dd>
+        <dt><span>To Muscler</span></dt>
+        <dd>
+            <span>{{sport.toMuscler}}</span>
+        </dd>
+        <dt><span>To Secher</span></dt>
+        <dd>
+            <span>{{sport.toSecher}}</span>
+        </dd>
+        <dt><span>Is Collectif</span></dt>
+        <dd>
+            <span>{{sport.isCollectif}}</span>
+        </dd>
+        <dt><span>To Cible Haut</span></dt>
+        <dd>
+            <span>{{sport.toCibleHaut}}</span>
+        </dd>
+        <dt><span>To Cible Bas</span></dt>
+        <dd>
+            <span>{{sport.toCibleBas}}</span>
+        </dd>
+        <dt><span>Is Contact</span></dt>
+        <dd>
+            <span>{{sport.isContact}}</span>
+        </dd>
+        <dt><span>Is Balle</span></dt>
+        <dd>
+            <span>{{sport.isBalle}}</span>
+        </dd>
+        <dt><span>Is Intense</span></dt>
+        <dd>
+            <span>{{sport.isIntense}}</span>
+        </dd>
+        <dt><span>Is Combat</span></dt>
+        <dd>
+            <span>{{sport.isCombat}}</span>
+        </dd>
+        <dt><span>Is Percussion</span></dt>
+        <dd>
+            <span>{{sport.isPercussion}}</span>
+        </dd>
+        <dt><span>Is Cher</span></dt>
+        <dd>
+            <span>{{sport.isCher}}</span>
+        </dd>
+        <dt><span>Is Artistique</span></dt>
+        <dd>
+            <span>{{sport.isArtistique}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sport/'+ sport.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
