@@ -1,0 +1,40 @@
+entity Sport {
+	nom String
+    image ImageBlob
+    toMuscler Boolean
+    toSecher Boolean
+    isCollectif Boolean
+    toCibleHaut Boolean
+    toCibleBas Boolean
+    isContact Boolean
+    isBalle Boolean
+    isIntense Boolean
+    isCombat Boolean
+    isPercussion Boolean
+    isCher Boolean
+    isArtistique Boolean
+}
+
+entity Question {
+	libelle String
+    toMuscler Boolean
+    toSecher Boolean
+    isCollectif Boolean
+    toCibleHaut Boolean
+    toCibleBas Boolean
+    isContact Boolean
+    isBalle Boolean
+    isIntense Boolean
+    isCombat Boolean
+    isPercussion Boolean
+    isCher Boolean
+    isArtistique Boolean
+}
+
+entity Reponse {
+	libelle String
+}
+
+relationship OneToMany {
+	Question{response} to Reponse
+}

@@ -1,6 +1,13 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "response",
+            "otherEntityName": "reponse",
+            "otherEntityRelationshipName": "question"
+        }
+    ],
     "fields": [
         {
             "fieldName": "libelle",

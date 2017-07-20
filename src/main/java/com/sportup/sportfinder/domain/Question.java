@@ -1,8 +1,11 @@
 package com.sportup.sportfinder.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -57,6 +60,10 @@ public class Question implements Serializable {
 
     @Column(name = "is_artistique")
     private Boolean isArtistique;
+
+    @OneToMany(mappedBy = "question")
+    @JsonIgnore
+    private Set<Reponse> responses = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -233,6 +240,31 @@ public class Question implements Serializable {
 
     public void setIsArtistique(Boolean isArtistique) {
         this.isArtistique = isArtistique;
+    }
+
+    public Set<Reponse> getResponses() {
+        return responses;
+    }
+
+    public Question responses(Set<Reponse> reponses) {
+        this.responses = reponses;
+        return this;
+    }
+
+    public Question addResponse(Reponse reponse) {
+        this.responses.add(reponse);
+        reponse.setQuestion(this);
+        return this;
+    }
+
+    public Question removeResponse(Reponse reponse) {
+        this.responses.remove(reponse);
+        reponse.setQuestion(null);
+        return this;
+    }
+
+    public void setResponses(Set<Reponse> reponses) {
+        this.responses = reponses;
     }
 
     @Override

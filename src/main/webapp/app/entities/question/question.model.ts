@@ -16,6 +16,7 @@ export class Question implements BaseEntity {
         public isPercussion?: boolean,
         public isCher?: boolean,
         public isArtistique?: boolean,
+        public responses?: BaseEntity[],
     ) {
         this.toMuscler = false;
         this.toSecher = false;
