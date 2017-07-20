@@ -17,6 +17,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  * REST controller for managing Reponse.
  */
@@ -101,6 +103,22 @@ public class ReponseResource {
         Reponse reponse = reponseRepository.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(reponse));
     }
+
+    /**
+     * GET  /reponses/:id : get the "id" reponse.
+     *
+     * @param id the id of the reponse to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the reponse, or with status 404 (Not Found)
+     */
+    @GetMapping("/reponsesForQuestionId/{id}")
+    @Timed
+    public ResponseEntity<List<Reponse>> getReponseForQuestionId(@PathVariable Long id) {
+        log.debug("REST request to get Reponse : {}", id);
+        List<Reponse> reponseList = reponseRepository.findAll();
+        List<Reponse> reponsesForQuestionId = reponseList.stream().filter(reponse -> reponse.getQuestion().getId().equals(id)).collect(toList());
+        return ResponseUtil.wrapOrNotFound(Optional.ofNullable(reponsesForQuestionId));
+    }
+
 
     /**
      * DELETE  /reponses/:id : delete the "id" reponse.
