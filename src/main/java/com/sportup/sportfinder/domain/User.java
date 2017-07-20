@@ -83,6 +83,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date")
     private Instant resetDate = null;
 
+    @Column(name = "age")
+    private Integer age = null;
+
+    @Column(name = "taille")
+    private Double taille = null;
+
+    @Column(name = "poids")
+    private Double poids = null;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -198,6 +207,60 @@ public class User extends AbstractAuditingEntity implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "User{" +
+            "id=" + id +
+            ", login='" + login + '\'' +
+            ", password='" + password + '\'' +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            ", email='" + email + '\'' +
+            ", activated=" + activated +
+            ", langKey='" + langKey + '\'' +
+            ", imageUrl='" + imageUrl + '\'' +
+            ", activationKey='" + activationKey + '\'' +
+            ", resetKey='" + resetKey + '\'' +
+            ", resetDate=" + resetDate +
+            ", age=" + age +
+            ", taille=" + taille +
+            ", poids=" + poids +
+            ", authorities=" + authorities +
+            '}';
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public boolean isActivated() {
+        return activated;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Double getTaille() {
+        return taille;
+    }
+
+    public void setTaille(Double taille) {
+        this.taille = taille;
+    }
+
+    public Double getPoids() {
+        return poids;
+    }
+
+    public void setPoids(Double poids) {
+        this.poids = poids;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -215,17 +278,4 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-            "login='" + login + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            ", email='" + email + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
-            ", activated='" + activated + '\'' +
-            ", langKey='" + langKey + '\'' +
-            ", activationKey='" + activationKey + '\'' +
-            "}";
-    }
 }
